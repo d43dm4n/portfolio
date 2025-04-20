@@ -13,7 +13,6 @@ import {
   Chip,
   useTheme,
   useMediaQuery} from '@mui/material';
-import CodeIcon from '@mui/icons-material/Code';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
@@ -100,7 +99,7 @@ const Home = () => {
                 fontWeight: 500
               }}
             >
-              Full Stack Developer
+              Computer Science Student
             </Typography>
 
             <Typography 
@@ -112,8 +111,12 @@ const Home = () => {
                 mx: isMobile ? 'auto' : 0 
               }}
             >
-              I build modern web applications with clean code and exceptional user experiences.
-              Specializing in React, Node.js, and cutting-edge web technologies.
+              I am a passionate computer science student with a keen interest in software development and data analysis.
+              I enjoy solving complex problems and creating efficient solutions. I have worked on various projects,
+              ranging from web applications to driver implementations, autoHideDuration, DevOps, and linux arm development.
+              I am always eager to learn new technologies and improve my skills.
+              <br />
+              I'm currently looking for opportunities to apply my knowledge and skills in Data Science, Software Development, or Web Development.
             </Typography>
 
             <Stack 
@@ -451,7 +454,7 @@ const Home = () => {
                   fontSize: { xs: '0.9rem', sm: '1rem' },
                 }}
               >
-                I'm currently available for freelance projects, contract work, or full-time positions.
+                I'm currently available for freelance projects, contract work, or half-time positions.
                 If you're interested in working together, get in touch!
               </Typography>
               
