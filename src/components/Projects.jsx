@@ -27,7 +27,7 @@ const Projects = () => {
   const [filter, setFilter] = useState("all");
 
   // Categories for filtering
-  const categories = ["all", "web", "mobile", "design", "backend"];
+  const categories = ["all", "web", "mobile", "design", "backend", "AI", "ML", "Data Science"];
 
   // Project data - replace with your own projects
   const projectsData = [
@@ -45,6 +45,20 @@ const Projects = () => {
       tags: ["React", "Material UI", "Responsive Design"],
       categories: ["web", "design"],
     },
+    {
+      id: 2,
+      title: "Project Portfolio Management PWA alpha version",
+      description:
+        "A project management tool for tracking tasks and progress, built with React and Firebase.",
+      longDescription:
+        "It was my thesis project for bsc for computer science engineering. I developed a project management tool using React and Firebase, allowing users to create, manage, and track tasks in real-time. The app features user authentication, task categorization, and progress tracking, and priorization.",
+      image:
+        "https://images.unsplash.com/photo-1598791318878-10e76d178023?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80",
+      demoLink: "https://yourprojectmanagementapp.com",
+      repoLink: "https://github.com/d43dm4n/Szakdolgozat",
+      tags: ["React", "Firebase", "PWA"],
+      categories: ["web", "mobile", "backend", "design"],
+    }
   ];
 
   // Filter projects based on selected category
