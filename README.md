@@ -160,7 +160,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## 👨‍💻 Author
 
-Your Name - [Your Website](https://yourwebsite.com) - your.email@example.com
+Pintér Szilveszter - [Your Website](https://yourwebsite.com) - szilveszter.pinter@gmail.com
 
 ## 🙏 Acknowledgments
 
