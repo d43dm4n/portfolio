@@ -1,25 +1,19 @@
 import React from 'react';
-import { Box, Typography, Card, Grid, Grow } from '@mui/material';
+import { Box, Typography, Card, Fade } from '@mui/material';
 import CodeIcon from '@mui/icons-material/Code';
 import StorageIcon from '@mui/icons-material/Storage';
 import BuildIcon from '@mui/icons-material/Build';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import DataIcon from '@mui/icons-material/DataUsage';
 import SkillProgressBar from './SkillProgressBar';
-import { cardStyles, cardPadding } from '../../theme/cardStyles';
 
-/**
- * A component for displaying a category of skills with progress bars
- */
 const SkillCategoryCard = ({ category, index }) => {
-  // Removed cardPadding from props ^^^ since we're importing it
-  
-  // Map icon names to actual components with consistent sizing
+  // Icon mapping function
   const getIcon = (iconName) => {
     const iconProps = { 
       sx: { 
-        fontSize: '1.75rem',
-        filter: 'drop-shadow(0px 2px 3px rgba(0, 0, 0, 0.2))'
+        fontSize: '1.5rem',
+        color: category.color,
       }
     };
     
@@ -34,111 +28,83 @@ const SkillCategoryCard = ({ category, index }) => {
   };
 
   return (
-    <Card
-      elevation={0}
-      sx={{
-        borderRadius: 4,
-        backgroundColor: 'rgba(15, 23, 42, 0.6)',
-        backdropFilter: 'blur(10px)',
-        border: '1px solid rgba(255, 255, 255, 0.08)',
-        overflow: 'visible',
-        mb: 2,
-        position: 'relative',
-        transition: 'transform 0.2s ease-in-out',
-        '&:hover': {
-          transform: 'translateY(-2px)',
-        },
-      }}
-    >
-      {/* Category Header */}
-      <Box 
-        sx={{ 
-          px: { xs: cardPadding.xs, sm: cardPadding.sm, md: cardPadding.md },      
-          py: { xs: cardPadding.xs - 0.5, sm: cardPadding.sm - 0.5, md: cardPadding.md - 0.5 },      
-          pb: { xs: cardPadding.xs - 1, sm: cardPadding.sm - 1, md: cardPadding.md - 1 },      
-          borderBottom: '1px solid rgba(255, 255, 255, 0.05)',
-          display: 'flex',
-          alignItems: 'center',
-          gap: 2
+    <Box sx={{ width: '100%', mb: 4 }}>
+      <Card
+        elevation={1}
+        sx={{
+          width: '100%',
+          borderRadius: 2,
+          backgroundColor: 'rgba(15, 23, 42, 0.65)',
+          backdropFilter: 'blur(10px)',
+          border: '1px solid rgba(255, 255, 255, 0.1)',
+          transition: 'transform 0.2s ease-out',
+          '&:hover': {
+            transform: 'translateY(-4px)',
+          },
         }}
       >
-        {/* Improved icon container with better visual integration */}
-        <Box
-          sx={{
-            width: 52,
-            height: 52,
+        {/* Header */}
+        <Box 
+          sx={{ 
+            px: 3,
+            py: 2,
+            borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'center',
-            borderRadius: '16px',
-            backgroundColor: `${category.color}30`,
-            border: `1px solid ${category.color}60`,
-            boxShadow: `0 4px 12px ${category.color}20`,
-            color: category.color,
-            position: 'relative',
-            overflow: 'hidden',
-            // Adding subtle gradient to icon background
-            '&:before': {
-              content: '""',
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              right: 0,
-              bottom: 0,
-              background: `linear-gradient(135deg, ${category.color}40 0%, transparent 100%)`,
-              opacity: 0.7,
-            }
+            gap: 2,
           }}
         >
-          {getIcon(category.icon)}
+          {/* Icon */}
+          <Box
+            sx={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              color: category.color,
+            }}
+          >
+            {getIcon(category.icon)}
+          </Box>
+          
+          {/* Title */}
+          <Typography 
+            variant="h6"
+            component="h2" 
+            fontWeight={600}
+            sx={{ color: 'white' }}
+          >
+            {category.name}
+          </Typography>
         </Box>
-        
-        <Typography 
-          variant="h5" 
-          component="h2" 
-          fontWeight={600}
-          sx={{
-            // Adding subtle gradient to title text for a more premium look
-            background: `linear-gradient(90deg, #fff 30%, rgba(255,255,255,0.8) 100%)`,
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            textShadow: '0px 2px 4px rgba(0, 0, 0, 0.1)'
-          }}
-        >
-          {category.name}
-        </Typography>
-      </Box>
 
-      {/* Skills List */}
-      <Box sx={{ 
-        px: { xs: cardPadding.xs, sm: cardPadding.sm, md: cardPadding.md },
-        pt: { xs: cardPadding.xs - 0.5, sm: cardPadding.sm - 0.5, md: cardPadding.md - 0.5 },
-        pb: { xs: cardPadding.xs, sm: cardPadding.sm, md: cardPadding.md }
-      }}>
-        <Grid container spacing={4}>
-          {category.skills.map((skill, skillIndex) => (
-            <Grid item xs={12} md={6} key={skill.name}>
-              <Grow 
-                in={true} 
-                timeout={(skillIndex + 1) * 200}
-                style={{ transformOrigin: '0 0 0' }}
-              >
-                <Box sx={{ 
-                  mb: 0.5,              // Add margin to bottom of each skill item
-                  mt: skillIndex % 2 === 0 ? 0 : 0.5  // Stagger odd/even items slightly
-                }}>
-                  <SkillProgressBar 
-                    skill={skill} 
-                    color={category.color}
-                    sx={{ mb: 1.5 }}     // Add more margin to bottom of progress bar
-                  />
-                </Box>
-              </Grow>
-            </Grid>
-          ))}
-        </Grid>
-      </Box>
-    </Card>
+        {/* Content - Now with multi-column grid */}
+        <Box sx={{ p: 3 }}>
+          <Box
+            sx={{
+              display: 'grid',
+              // Multiple columns to make it wider instead of list-like
+              gridTemplateColumns: {
+                xs: '1fr',                  // 1 column on mobile
+                sm: 'repeat(2, 1fr)',       // 2 columns on tablets
+                md: 'repeat(2, 1fr)',       // 2 columns on laptop
+                lg: 'repeat(4, 1fr)',       // 5 columns on desktop
+              },
+              gap: 2.5,
+              width: '100%',
+            }}
+          >
+            {category.skills.map((skill) => (
+              <Box key={skill.name}>
+                <SkillProgressBar 
+                  skill={skill} 
+                  color={category.color}
+                />
+              </Box>
+            ))}
+          </Box>
+        </Box>
+      </Card>
+    </Box>
   );
 };
 

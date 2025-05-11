@@ -30,7 +30,7 @@ const Skills = () => {
         />
 
         {/* Skills Categories */}
-        <Grid container spacing={4}>
+        <Grid container spacing={8}>
           {skillCategories.map((category, categoryIndex) => (
             <Grid item xs={12} key={category.name}>
               <Fade in={true} timeout={500 + categoryIndex * 100}>
