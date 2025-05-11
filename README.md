@@ -2,8 +2,6 @@
 
 A sleek, responsive portfolio website built with React and Material UI, featuring a modern glassmorphic design with dynamic background elements. This portfolio showcases projects, skills, and professional information in an engaging, interactive format.
 
-![Portfolio Preview](https://via.placeholder.com/800x400?text=Portfolio+Preview)
-
 ## 🚀 Features
 
 - **Modern UI Design** - Glassmorphic cards, subtle animations, and dynamic background elements
